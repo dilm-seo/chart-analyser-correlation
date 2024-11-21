@@ -4,19 +4,9 @@ import { ExternalLink } from 'lucide-react';
 
 interface Props {
   news: NewsItem[];
-  loading: boolean;
 }
 
-export default function NewsFeed({ news, loading }: Props) {
-  if (loading) {
-    return (
-      <div className="bg-white rounded-lg shadow-lg p-4">
-        <h2 className="text-xl font-semibold mb-4">Latest News</h2>
-        <p className="text-gray-700">Loading news...</p>
-      </div>
-    );
-  }
-
+export default function NewsFeed({ news }: Props) {
   return (
     <div className="bg-white rounded-lg shadow-lg p-4">
       <h2 className="text-xl font-semibold mb-4">Latest News</h2>
@@ -40,9 +30,6 @@ export default function NewsFeed({ news, loading }: Props) {
             <p className="text-gray-700 mt-2">{item.content}</p>
           </div>
         ))}
-        {news.length === 0 && (
-          <p className="text-gray-700">No news available.</p>
-        )}
       </div>
     </div>
   );
